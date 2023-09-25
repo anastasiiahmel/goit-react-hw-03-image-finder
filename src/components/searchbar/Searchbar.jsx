@@ -1,6 +1,9 @@
 import { Component } from "react";
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {
+  SearchbarHeader
+} from './Search.styled.js'
 
 export class Searchbar extends Component {
 
@@ -30,12 +33,12 @@ onFormChange = event => {
   render()
   {
     return (
-    <header className="searchbar">
-  <form className="form" onSubmit= {this.handleSubmit}>
-    <button type="submit" className="button">
-      <span className="button-label">Search</span>
-    </button>
-
+      <SearchbarHeader>
+        <header className="searchbar">
+          <form className="form" onSubmit={this.handleSubmit}>
+        <button type="submit" className="button">
+                    <span className="button-label">Search</span>
+              </button>
     <input
       className="input"
       type="text"
@@ -44,9 +47,10 @@ onFormChange = event => {
             placeholder="Search images and photos"
             onChange={this.onFormChange}
             value={this.state.searchQuery}
-    />
-  </form>
-</header>
+              />
+            </form>
+        </header>
+        </SearchbarHeader>
   )
 }
 
