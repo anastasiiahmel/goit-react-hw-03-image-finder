@@ -21,7 +21,7 @@ export const SearchbarHeader = styled.header`
   .form {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 400px;
     max-width: 600px;
     background-color: #fff;
     border-radius: 3px;
@@ -31,7 +31,7 @@ export const SearchbarHeader = styled.header`
     display: inline-block;
     width: 100%;
     font: inherit;
-    font-size: 20px;
+    font-size: 15px;
     border: none;
     outline: none;
     padding-left: 4px;
@@ -39,15 +39,14 @@ export const SearchbarHeader = styled.header`
   }
   .input::placeholder {
     font: inherit;
-    font-size: 18px;
+    font-size: 15px;
   }
   .button {
     display: inline-block;
-    width: 48px;
-    height: 48px;
+    width: 100px;
+    height: 40px;
     border: 0;
-    padding: 10px 10px;
-    background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
+    /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg'); */
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,6 +54,7 @@ export const SearchbarHeader = styled.header`
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     outline: none;
+    font-size: 10px;
   }
   .button:hover {
     opacity: 1;

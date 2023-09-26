@@ -17,7 +17,8 @@ export const ModalStyled = styled.div`
   max-width: calc(100vw - 48px);
   max-height: calc(100vh - 24px);
   .img-modal {
-    margin-left: 500px;
+    display: block;
+    margin: 0 auto;
     width: 50%;
     height: 50%;
   }
