@@ -17,9 +17,10 @@ export class App extends Component {
     images: [],
     webformatURL: [],
     largeImageURL: '',
-
+   totalHits: null,
     isLoading: false,
     showModal: false,
+    hidden: false,
   }
 
   componentDidUpdate(_, prevState) {
@@ -37,8 +38,9 @@ export class App extends Component {
     try {
 
       const articles = await dataQuery(searchQuery, page, perPage);
-
+console.log('articles :>> ', articles);
       if (page === 1) {
+        
         this.setState({ images: articles.hits });
       } 
       else {
@@ -56,8 +58,10 @@ export class App extends Component {
 
     } 
     catch (error) {
+      
         Notify.warning('Sorry, there are no images matching your search query. Please try again.');
       this.setState({ error: error.message });
+
     } 
     finally{
   this.setState({ isLoading: false });
@@ -77,11 +81,13 @@ export class App extends Component {
     });
   };
 
-  onLoadMoreData = () => {
+  onLoadMoreDaccta = () => {
+    
     this.setState(prevState => ({ page: prevState.page + 1 }));
   };
 
- 
+
+
 
 
 handleImageClick = (largeImageURL) => {
@@ -91,11 +97,10 @@ handleImageClick = (largeImageURL) => {
   handleCloseModal = () => {
     this.setState({ largeImageURL: '' });
   };
-
   
 
-  render()
-  { 
+  render()  {
+  //  const howManyPictures =  this.state.totalHits <= this.state.page * 12; 
     return (
     <>
         <Searchbar onSubmit={this.onFormSubmitData} />
@@ -105,10 +110,11 @@ handleImageClick = (largeImageURL) => {
               />
         {this.state.isLoading && <Loader />}
         
-          {this.state.images.length > 0 && (
-            <Button 
-            onClick={this.onLoadMoreData}
+          {this.state.images.length >0 && this.state.images.length >= this.state.perPage &&(
+          <Button 
+            onClick={this.onLoadMoreDaccta}
             isVisible={!this.state.isLoading} 
+
             />
             )}
             {this.state.largeImageURL && <Modal src={this.state.largeImageURL} alt="Large" onClose={this.handleCloseModal} />}
