@@ -100,7 +100,7 @@ handleImageClick = (largeImageURL) => {
   
 
   render()  {
-  //  const howManyPictures =  this.state.totalHits <= this.state.page * 12; 
+  //  const removeBtn =  this.state.totalHits <= this.state.page * 12; 
     return (
     <>
         <Searchbar onSubmit={this.onFormSubmitData} />
